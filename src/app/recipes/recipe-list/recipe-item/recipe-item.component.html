@@ -1,0 +1,17 @@
+<div
+  class="media border"
+  style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="bg-info"
+>
+  <div class="media-body">
+    <h5 class="mt-0 mb-1">{{ recipe.name }}</h5>
+    {{ recipe.description }}
+  </div>
+  <img
+    class="d-flex ml-3 img-fluid"
+    [src]="recipe.imagePath"
+    alt="Generic placeholder image"
+    style="width: 50px;cursor: pointer;"
+  />
+</div>
