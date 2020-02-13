@@ -51,7 +51,7 @@ export function shoppingListReducer(
         editedIngredient: null
       };
 
-    case ShoppingListActions.DELETE_INGREDIENTS:
+    case ShoppingListActions.DELETE_INGREDIENT:
       return {
         ...state,
         ingredients: state.ingredients.filter((ig, igIndex) => {

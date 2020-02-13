@@ -33,6 +33,6 @@ export function authReducer(
       }
        
     default:
-      break;
+      return state;
   }
 }
