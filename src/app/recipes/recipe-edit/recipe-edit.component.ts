@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormGroup, FormControl, FormArray, Validators } from "@angular/forms";
+import { Store } from "@ngrx/store";
 import { map } from "rxjs/operators";
 import { Subscription } from "rxjs";
-import { Store } from "@ngrx/store";
 
 import * as fromApp from "../../store/app.reducer";
 import * as RecipesActions from "../store/recipe.actions";
@@ -34,12 +34,14 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     this.route.params.subscribe((params: Params) => {
       this.id = +params["id"];
       this.editMode = params["id"] != null;
-      this.initForm();
     });
+    this.initForm();
   }
 
   onSubmit() {
+
     if (this.editMode) {
+      
       this.store.dispatch(
         new RecipesActions.UpdateRecipe({
           index: this.id,
@@ -47,6 +49,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         })
       );
     } else {
+
       this.store.dispatch(new RecipesActions.AddRecipe(this.recipeForm.value));
     }
     this.onCancel();
@@ -63,6 +66,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
       })
     );
   }
+
   onDeleteIngredient(index: number) {
     (<FormArray>this.recipeForm.get("ingredients")).removeAt(index);
   }
@@ -98,7 +102,6 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
           recipeName = recipe.name;
           recipeImagePath = recipe.imagePath;
           recipeDescription = recipe.description;
-
           if (recipe["ingredients"]) {
             for (let ingredient of recipe.ingredients) {
               recipeIngredients.push(

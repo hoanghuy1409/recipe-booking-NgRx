@@ -1,4 +1,4 @@
-import { Recipe } from "./../recipe.model";
+import { Recipe } from "../recipe.model";
 import * as RecipesActions from "./recipe.actions";
 
 export interface State {

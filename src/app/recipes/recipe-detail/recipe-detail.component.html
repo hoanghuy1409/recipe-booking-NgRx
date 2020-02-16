@@ -15,7 +15,9 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <div class="dropdown" ngbDropdown>
+    <div 
+      class="dropdown" 
+      ngbDropdown>
       <button
         ngbDropdownToggle
         class="btn btn-secondary dropdown-toggle"
@@ -34,10 +36,16 @@
           style="cursor: pointer;"
           >To Shopping List</a
         >
-        <a ngbDropdownItem style="cursor: pointer;" (click)="onEditRecipe()"
+        <a 
+        ngbDropdownItem 
+        style="cursor: pointer;" 
+        (click)="onEditRecipe()"
           >Edit Recipe</a
         >
-        <a ngbDropdownItem style="cursor: pointer;" (click)="onDeleteRecipe()"
+        <a n
+        gbDropdownItem 
+        style="cursor: pointer;" 
+        (click)="onDeleteRecipe()"
           >Delete Recipe</a
         >
       </div>
@@ -53,7 +61,9 @@
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+      <li 
+      class="list-group-item" 
+      *ngFor="let ingredient of recipe.ingredients">
         {{ ingredient.name }} - {{ ingredient.amount }}
       </li>
     </ul>

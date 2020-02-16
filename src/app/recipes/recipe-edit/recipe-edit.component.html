@@ -38,7 +38,7 @@
               type="text"
               id="imagePath"
               formControlName="imagePath"
-              class="form-control "
+              class="form-control"
               #imagePath
             />
           </div>
@@ -54,10 +54,10 @@
           <div class="form-group">
             <label for="description">Description</label>
             <textarea
+              type="text"
               id="description"
               class="form-control"
               formControlName="description"
-              type="text"
               rows="6"
             ></textarea>
           </div>
@@ -84,7 +84,11 @@
               />
             </div>
             <div class="col-md-2">
-              <button class="btn btn-danger" (click)="onDeleteIngredient(i)">
+              <button 
+                type="button"
+                class="btn btn-danger" 
+                (click)="onDeleteIngredient(i)"
+              >
                 X
               </button>
             </div>
@@ -93,8 +97,8 @@
           <div class="row">
             <div class="col-md-12">
               <button
-                class="btn btn-success"
                 type="button"
+                class="btn btn-success"
                 (click)="onAddIngredient()"
               >
                 Add Ingredient
