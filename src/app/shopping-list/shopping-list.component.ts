@@ -15,7 +15,6 @@ import * as fromApp from "../store/app.reducer";
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients: Observable<{ ingredients: Ingredient[] }>;
-  private igChangeSub: Subscription;
 
   constructor(
     private loggingService: LoggingService,
@@ -24,16 +23,12 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.ingredients = this.store.select("shoppingList");
-    // this.ingredients = this.slService.getIngredients();
-    // this.igChangeSub = this.slService.ingredientsChanged.subscribe(
-    //   (ingredients: Ingredient[]) => (this.ingredients = ingredients)
-    // );
 
     this.loggingService.printLog("hello form shoppinglistcomponent ngoninit");
   }
 
   onEditItem(index: number) {
-    // this.slService.startedEditing.next(index);
+
     this.store.dispatch(new ShoppingListActions.StartEdit(index));
   }
 
